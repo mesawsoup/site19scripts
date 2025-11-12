@@ -4,12 +4,15 @@ local function createHighlight(plr)
 	if plr == nil then
 		return
 	end
+	if plr.Character = nil then
+		return
+	end
 	if plr == localPlayer then
 		return;
 	end
 	local highlight = Instance.new("Highlight");
 	highlight.FillColor = plr.TeamColor.Color;
-	highlight.Parent = plr.Character;
+	highlight.Parent = plr.Character or plr.CharacterAdded:Wait();
    highlight.OutlineTransparency = 1
 	if plr:IsInGroup(35650370) then
 		local BillboardGui = Instance.new("BillboardGui")
