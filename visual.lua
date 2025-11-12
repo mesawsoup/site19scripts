@@ -1,3 +1,4 @@
+local Players = game:GetService("Players")
 local localPlayer = game:GetService("Players").LocalPlayer
 
 local function createHighlight(plr)
