@@ -4,12 +4,6 @@ local function createHighlight(plr)
 	if plr == nil then
 		return
 	end
-	if plr.Character == nil then
-		plr.CharacterAdded:Wait()
-	end
-	if plr.Character:FindFirstChildOfClass("Highlight") then
-		return;
-	end
 	if plr == localPlayer then
 		return;
 	end
@@ -53,16 +47,6 @@ end
 
 resetHighlights();
 
-game.Players.LocalPlayer:GetPropertyChangedSignal("Team"):Connect(function()
-	resetHighlights()
-	for _,v in game:GetService("Players"):GetPlayers() do
-		if v ~= localPlayer then
-			createHighlight(v);
-		end
-	end
-   task.wait()
-end)
-
 for _,v in game:GetService("Players"):GetPlayers() do
 	if v ~= localPlayer then
         createHighlight(v);
@@ -75,8 +59,7 @@ end
 
 Players.ChildAdded:Connect(function(plr)
 	if plr:IsA("Player") then
-		plr.CharacterAdded:Connect(function()
+		plr.CharacterAdded:Wait()
 			createHighlight(plr);
-		end)
 	end
 end)
