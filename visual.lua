@@ -33,11 +33,14 @@ local function createHighlight(plr)
 end
 
 local function resetHighlights()
-	for _, plr in game:GetService("Players"):GetPlayers() do
+	for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
 		if plr:IsA("Player") then
 			if plr.Character then
 				if plr.Character:FindFirstChildOfClass("Highlight") then
 					plr.Character:FindFirstChildOfClass("Highlight"):Destroy();
+				end
+				if plr.Character.HumanoidRootPart.BillboardGui then
+					plr.Character.HumanoidRootPart.BillboardGui:Destroy()
 				end
 			end
 		end
@@ -47,7 +50,7 @@ end
 
 resetHighlights();
 
-for _,v in game:GetService("Players"):GetPlayers() do
+for _,v in ipairs(game:GetService("Players"):GetPlayers()) do
 	if v ~= localPlayer then
         createHighlight(v);
 		v.CharacterAdded:Connect(function()
