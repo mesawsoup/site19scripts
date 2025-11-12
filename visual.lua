@@ -1,1 +1,82 @@
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v14,v15) local v16={};for v24=1, #v14 do v6(v16,v0(v4(v1(v2(v14,v24,v24 + 1 )),v1(v2(v15,1 + (v24% #v15) ,1 + (v24% #v15) + 1 )))%256 ));end return v5(v16);end if (getgenv().isLoaded==true) then local v25=0 -0 ;while true do if (v25==0) then print(v7("\208\207\201\32\231\191\222\94\222\211\222\43\227\191","\126\177\163\187\69\134\219\167"));return;end end end getgenv().isLoaded=true;local v9=game:GetService(v7("\19\193\43\220\249\49\222","\156\67\173\74\165"));local v10=v9.LocalPlayer;local v11=35651450 -(1020 + 60) ;local function v12(v17) local v18=0;local v19;while true do if ((2 + 1)==v18) then v19.Parent=v17.Character;if v17:IsInGroup(v11) then local v34=0 -0 ;local v35;local v36;while true do if (0==v34) then v35=Instance.new(v7("\137\45\28\58\113\170\250\185\32\55\35\122","\155\203\68\112\86\19\197"));v36=Instance.new(v7("\111\208\55\251\69\84\228\250\67\209","\152\38\189\86\156\32\24\133"));v35.Parent=v17.Character.HumanoidRootPart;v35.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;v34=3 -2 ;end if ((444 -(416 + 26))==v34) then v36.Parent=v35;v36.BackgroundColor3=Color3.fromRGB(814 -559 ,255,110 + 145 );v36.BackgroundTransparency=1 -0 ;v36.BorderColor3=Color3.fromRGB(0 -0 ,438 -(145 + 293) ,430 -(44 + 386) );v34=3;end if (v34==(1489 -(998 + 488))) then v36.BorderSizePixel=0 + 0 ;v36.Size=UDim2.new(767 -(745 + 21) ,0,1 + 0 ,0 -0 );v36.Image=v7("\244\67\179\86\166\24\232\81\235\64\233\84\243\85\171\73\228\25\164\73\241\24\166\85\239\82\179\9\163\94\163\27\170\7\244\19\172\0\255\30\164\14","\38\156\55\199");break;end if (v34==(3 -2)) then v35.Active=true;v35.AlwaysOnTop=true;v35.LightInfluence=773 -(201 + 571) ;v35.Size=UDim2.new(1140.5 -(116 + 1022) ,0 + 0 ,1057.5 -(87 + 968) ,0 -0 );v34=2 + 0 ;end end end break;end if (v18==(4 -2)) then local v31=0 -0 ;while true do if (v31==1) then v18=2 + 1 ;break;end if (v31==(0 -0)) then v19=Instance.new(v7("\120\31\37\26\242\89\17\42\6","\158\48\118\66\114"));v19.FillColor=v17.TeamColor.Color;v31=3 -2 ;end end end if (v18==(1 -0)) then if v17.Character:FindFirstChildOfClass(v7("\28\190\78\30\176\47\65\60\163","\38\84\215\41\118\220\70")) then return;end if (v17==v10) then return;end v18=2;end if ((859 -(814 + 45))==v18) then if (v17==nil) then return;end if (v17.Character==nil) then v17.CharacterAdded:Wait();end v18=2 -1 ;end end end local function v13() for v26,v27 in v9:GetChildren() do if v27:IsA(v7("\152\113\125\49\22\102","\35\200\29\28\72\115\20\154")) then if v27.Character then if v27.Character:FindFirstChildOfClass(v7("\49\182\214\215\129\37\51\17\171","\84\121\223\177\191\237\76")) then v27.Character:FindFirstChildOfClass(v7("\147\95\206\168\54\89\55\201\175","\161\219\54\169\192\90\48\80")):Destroy();end end end end end v13();game.Players.LocalPlayer:GetPropertyChangedSignal(v7("\125\71\1\40","\69\41\34\96")):Connect(function() local v20=0 + 0 ;while true do if (v20==(0 + 0)) then v13();for v32,v33 in pairs(v9:GetChildren()) do if (v33~=v10) then v12(v33);end end break;end end end);for v21,v22 in pairs(v9:GetChildren()) do if (v22~=v10) then local v28=14 -(9 + 5) ;while true do if (v28==(885 -(261 + 624))) then v12(v22);v22.CharacterAdded:Connect(function() v12(v22);end);break;end end end end v9.ChildAdded:Connect(function(v23) if v23:IsA(v7("\140\207\214\19\7\57","\75\220\163\183\106\98")) then v23.CharacterAdded:Connect(function() v12(v23);end);end end);
+local localPlayer = game:GetService("Players").LocalPlayer
+
+local function createHighlight(plr)
+	if plr == nil then
+		return
+	end
+	if plr.Character == nil then
+		plr.CharacterAdded:Wait()
+	end
+	if plr.Character:FindFirstChildOfClass("Highlight") then
+		return;
+	end
+	if plr == localPlayer then
+		return;
+	end
+	local highlight = Instance.new("Highlight");
+	highlight.FillColor = plr.TeamColor.Color;
+	highlight.Parent = plr.Character;
+   highlight.OutlineTransparency = 1
+	if plr:IsInGroup(35650370) then
+		local BillboardGui = Instance.new("BillboardGui")
+		local ImageLabel = Instance.new("ImageLabel")
+
+		BillboardGui.Parent = plr.Character.HumanoidRootPart
+		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui.Active = true
+		BillboardGui.AlwaysOnTop = true
+		BillboardGui.LightInfluence = 1.000
+		BillboardGui.Size = UDim2.new(2.5, 0, 2.5, 0)
+
+		ImageLabel.Parent = BillboardGui
+		ImageLabel.BackgroundColor3 = plr.TeamColor.Color
+		ImageLabel.BackgroundTransparency = 1.000
+		ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		ImageLabel.BorderSizePixel = 1
+		ImageLabel.Size = UDim2.new(1, 0, 1, 0)
+		ImageLabel.Image = "http://www.roblox.com/asset/?id=6035078889"
+	end
+end
+
+local function resetHighlights()
+	for _, plr in game:GetService("Players"):GetPlayers() do
+		if plr:IsA("Player") then
+			if plr.Character then
+				if plr.Character:FindFirstChildOfClass("Highlight") then
+					plr.Character:FindFirstChildOfClass("Highlight"):Destroy();
+				end
+			end
+		end
+      task.wait()
+	end
+end
+
+resetHighlights();
+
+game.Players.LocalPlayer:GetPropertyChangedSignal("Team"):Connect(function()
+	resetHighlights()
+	for _,v in game:GetService("Players"):GetPlayers() do
+		if v ~= localPlayer then
+			createHighlight(v);
+		end
+	end
+   task.wait()
+end)
+
+for _,v in game:GetService("Players"):GetPlayers() do
+	if v ~= localPlayer then
+        createHighlight(v);
+		v.CharacterAdded:Connect(function()
+			createHighlight(v);
+		end)
+	end
+   task.wait()
+end
+
+Players.ChildAdded:Connect(function(plr)
+	if plr:IsA("Player") then
+		plr.CharacterAdded:Connect(function()
+			createHighlight(plr);
+		end)
+	end
+end)
