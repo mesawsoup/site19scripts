@@ -57,9 +57,8 @@ for _,v in game:GetService("Players"):GetPlayers() do
    task.wait()
 end
 
-Players.ChildAdded:Connect(function(plr)
-	if plr:IsA("Player") then
-		plr.CharacterAdded:Wait()
-			createHighlight(plr);
-	end
+Players.PlayerAdded:Connect(function(plr)
+	plr.CharacterAdded:Connect(function()
+		createHighlight(plr);
+	end)
 end)
