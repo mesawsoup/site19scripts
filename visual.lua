@@ -1,4 +1,3 @@
-local Players = game:GetService("Players")
 local localPlayer = game:GetService("Players").LocalPlayer
 
 local function createHighlight(plr)
@@ -54,7 +53,7 @@ local function changedTeam(plr)
     end)
 end
 
-for _, plr in ipairs(Players:GetPlayers()) do
+for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
     if plr ~= localPlayer then
         changedTeam(plr)
         if plr.Character then
