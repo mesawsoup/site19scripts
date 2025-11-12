@@ -48,15 +48,9 @@ end
 
 resetHighlights();
 
-local function changedTeam(plr)
-    plr:GetPropertyChangedSignal("Team"):Connect(function()
-        createHighlight(plr)
-    end)
-end
 
 for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
     if plr ~= localPlayer then
-        changedTeam(plr)
         if plr.Character then
             createHighlight(plr)
         end
@@ -68,7 +62,7 @@ end
 
 Players.PlayerAdded:Connect(function(plr)
     if plr ~= localPlayer then
-        changedTeam(plr)
+
         plr.CharacterAdded:Connect(function()
             createHighlight(plr)
         end)
