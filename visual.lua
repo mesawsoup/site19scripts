@@ -4,9 +4,6 @@ local function createHighlight(plr)
 	if plr == nil then
 		return
 	end
-	if plr.Character = nil then
-		return
-	end
 	if plr == localPlayer then
 		return;
 	end
@@ -41,9 +38,6 @@ local function resetHighlights()
 			if plr.Character then
 				if plr.Character:FindFirstChildOfClass("Highlight") then
 					plr.Character:FindFirstChildOfClass("Highlight"):Destroy();
-				end
-				if plr.Character.HumanoidRootPart.BillboardGui then
-					plr.Character.HumanoidRootPart.BillboardGui:Destroy()
 				end
 			end
 		end
