@@ -34,7 +34,7 @@ local function createHighlight(plr)
 end
 
 local function resetHighlights()
-	for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
+	for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
 		if plr:IsA("Player") then
 			if plr.Character then
 				if plr.Character:FindFirstChildOfClass("Highlight") then
@@ -49,7 +49,7 @@ end
 resetHighlights();
 
 
-for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
+for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
     if plr ~= localPlayer then
         if plr.Character then
             createHighlight(plr)
