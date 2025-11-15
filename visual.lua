@@ -24,12 +24,12 @@ local function createHighlight(plr)
 		BillboardGui.Size = UDim2.new(2.5, 0, 2.5, 0)
 
 		ImageLabel.Parent = BillboardGui
-		ImageLabel.BackgroundColor3 = plr.TeamColor.Color
+		ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 		ImageLabel.BackgroundTransparency = 1.000
 		ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		ImageLabel.BorderSizePixel = 1
+		ImageLabel.BorderSizePixel = 0
 		ImageLabel.Size = UDim2.new(1, 0, 1, 0)
-		ImageLabel.Image = "http://www.roblox.com/asset/?id=6035078889"
+		ImageLabel.Image = "http://www.roblox.com/asset/?id=6031071053"
 	end
 end
 
