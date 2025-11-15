@@ -16,7 +16,7 @@ local function createHighlight(plr)
 		local BillboardGui = Instance.new("BillboardGui")
 		local ImageLabel = Instance.new("ImageLabel")
 
-		BillboardGui.Parent = plr.Character.HumanoidRootPart
+		BillboardGui.Adornee = plr.Character.HumanoidRootPart
 		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 		BillboardGui.Active = true
 		BillboardGui.AlwaysOnTop = true
